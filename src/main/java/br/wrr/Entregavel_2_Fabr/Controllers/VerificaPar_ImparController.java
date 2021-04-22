@@ -27,7 +27,7 @@ public class VerificaPar_ImparController {
 	@Autowired
 	private Par_ImparRepository par_ImparRepository;
 
-	@ApiOperation(value = "Resultado da verificação", response = Iterable.class, tags = "getString")
+	@ApiOperation(value = "Resultado da verificação", response = Iterable.class, tags = "getParImpar")
 	@GetMapping
 	public List<Par_ImparModel> getNumero() {
 		return par_ImparRepository.findAll();

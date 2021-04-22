@@ -23,14 +23,14 @@ public class DataHoraController {
 	@Autowired
 	private DataHoraRepository repositoryDH;
 
-	@ApiOperation(value = "Retorna as datas", response = Iterable.class, tags = "getHoraatual")
+	@ApiOperation(value = "Retorna as datas", response = Iterable.class, tags = "getData/Hora")
 	@GetMapping
 	public List<DataHoraModel> getHoraatual() {
 		return repositoryDH.findAll();
 
 	}
 
-	@ApiOperation(value = "Cadastra nova data e hora ", response = Iterable.class, tags = "DataHora")
+	@ApiOperation(value = "Cadastra nova data e hora ", response = Iterable.class, tags = "postDataHora")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public DataHoraModel datahora(@RequestBody DataHoraModel horaatual) {

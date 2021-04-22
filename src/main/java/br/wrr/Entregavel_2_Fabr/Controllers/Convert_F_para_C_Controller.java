@@ -26,13 +26,13 @@ public class Convert_F_para_C_Controller {
 	@Autowired
 	private Convert_F_para_C_Repository repositoryConv;
 
-	@ApiOperation(value = "Converti", response = Iterable.class, tags = "getTemperatura")
+	@ApiOperation(value = "Convertido", response = Iterable.class, tags = "getTemperatura")
 	@GetMapping
 	public List<Convert_F_para_C_Model> getTemperatura() {
 		return repositoryConv.findAll();
 	}
 
-	@ApiOperation(value = "Converte nova temperatura", response = Iterable.class, tags = "PostTemperatura")
+	@ApiOperation(value = "Converte", response = Iterable.class, tags = "PostTemperatura")
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Convert_F_para_C_Model posttemperatura(@RequestBody Convert_F_para_C_Model temperatura) {
