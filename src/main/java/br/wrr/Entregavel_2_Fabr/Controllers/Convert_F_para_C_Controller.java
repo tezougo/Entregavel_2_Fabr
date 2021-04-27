@@ -23,19 +23,19 @@ import io.swagger.annotations.ApiOperation;
 public class Convert_F_para_C_Controller {
 	Convert_F_para_C_Model convert_F_para_C_Model = new Convert_F_para_C_Model();
 
-	@Autowired
+	@Autowired // instancia a variavel a baixo com a classe repository e todos os metodos disponíveis pela extends do jparepository
 	private Convert_F_para_C_Repository repositoryConv;
 
 	@ApiOperation(value = "Convertido", response = Iterable.class, tags = "getTemperatura")
-	@GetMapping
+	@GetMapping // é usa quando utilizado o metodo get através do extends JpaRepository, fazendo vir direto aqui \/ 
 	public List<Convert_F_para_C_Model> getTemperatura() {
-		return repositoryConv.findAll();
+		return repositoryConv.findAll(); // após o autowired é possível usar o metodo findall entre outros
 	}
 
 	@ApiOperation(value = "Converte", response = Iterable.class, tags = "PostTemperatura")
-	@PostMapping
+	@PostMapping // é usado quando utilizado o metodo post através do extends JpaRepository, fazendo vir direto aqui \/
 	@ResponseStatus(HttpStatus.CREATED)
-	public Convert_F_para_C_Model posttemperatura(@RequestBody Convert_F_para_C_Model temperatura) {
+	public Convert_F_para_C_Model posttemperatura(@RequestBody Convert_F_para_C_Model temperatura) { // o requestbody é utilizado para converter em um objeto java do tipo Convert_F_para_C_Model
 		return repositoryConv.save(temperatura);
 	}
 

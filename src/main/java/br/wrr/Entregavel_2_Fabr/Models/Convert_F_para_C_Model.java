@@ -8,11 +8,12 @@ import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModelProperty;
 
+
 @Entity
 public class Convert_F_para_C_Model {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id;
+	private long Id; // tipo Long será o mesmo utilizado em repository
 
 	public long getId() {
 		return Id;

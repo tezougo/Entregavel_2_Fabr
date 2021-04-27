@@ -36,12 +36,9 @@ public class UrnaModel {
 		this.numero = numero;
 	}
 
-//	public String getVerficavoto() {
-//		if(numero == 00) {
-//			verificavoto = "Pedro Silva";
-//		}
-//		return verficavoto;
-//	}
+	public String getVerficavoto() {
+		return verficavoto;
+	}
 
 	public void setVerficavoto(String verficavoto) {
 		this.verficavoto = verficavoto;
