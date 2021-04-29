@@ -29,6 +29,15 @@ public class UrnaModel {
 	private String verficavoto;
 
 	public int getVoto() {
+		if (voto == 90) {
+			setVerficavoto("Prefeito Pedro");
+		} else if (voto == 91) {
+			setVerficavoto("Prefeita Dilma");
+		} else if (voto == 92) {
+			setVerficavoto("Prefeito Wagner");
+		} else {
+			setVerficavoto("Voto nulo!");
+		}
 		return voto;
 	}
 
