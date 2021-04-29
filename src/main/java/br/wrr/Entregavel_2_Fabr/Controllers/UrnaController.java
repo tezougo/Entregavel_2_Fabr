@@ -28,18 +28,28 @@ public class UrnaController {
     @ApiOperation(value = "resultadoUrna", response = Iterable.class, tags = "getVoto")
     @GetMapping // é usa quando utilizado o metodo get através do extends JpaRepository, fazendo
                 // vir direto aqui \/
-    public List<UrnaModel> getNumero() {
-        
-
+    public List<UrnaModel> getVoto() {
         return urnaRepository.findAll(); // após o autowired é possível usar o metodo findall entre outros
     }
 
-    @ApiOperation(value = "inseriVoto", response = Iterable.class, tags = "PostVoto")
+    @ApiOperation(value = "inseriVoto/verificaVoto", response = Iterable.class, tags = "PostVoto")
     @PostMapping // é usado quando utilizado o metodo post através do extends JpaRepository,
                  // fazendo vir direto aqui \/
     @ResponseStatus(HttpStatus.CREATED)
     public UrnaModel postVoto(@RequestBody UrnaModel urna) { // o requestbody é utilizado para converter em um objeto java do tipo UrnaModel
-        return urnaRepository.save(urna);
+        if (urna.getVoto() == 90) {
+            urna.setVerficavoto("Prefeito Pedro");
+            return urnaRepository.save(urna);
+        } else if (urna.getVoto() == 91) {
+            urna.setVerficavoto("Prefeita Dilma");
+            return urnaRepository.save(urna);
+        } else if (urna.getVoto() == 92) {
+            urna.setVerficavoto("Prefeito Wagner");
+            return urnaRepository.save(urna);
+        } else {
+            urna.setVerficavoto("Voto nulo!");
+            return urnaRepository.save(urna);
+        }
     }
 
     // @ResponseBody // para não navegar para uma página, se não colocar ele ira

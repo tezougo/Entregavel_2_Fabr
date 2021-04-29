@@ -23,7 +23,7 @@ public class UrnaModel {
 		Id = id;
 	}
 
-	@ApiModelProperty(notes = "Urna", name = "UrnaEletronica", required = true, value = "votação")
+	@ApiModelProperty(notes = "Urna", name = "Exemplo '90'", required = true, value = "Voto para prefeito: 90, 91, 92")
 	@Column(nullable = false)
 	private int voto;
 	private String verficavoto;
@@ -44,4 +44,3 @@ public class UrnaModel {
 		this.verficavoto = verficavoto;
 	}
 }
-
