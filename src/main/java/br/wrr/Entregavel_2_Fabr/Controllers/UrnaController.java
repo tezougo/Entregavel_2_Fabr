@@ -25,20 +25,20 @@ public class UrnaController {
                // disponíveis pela extends do jparepository
     private UrnaRepository urnaRepository;
 
-    @ApiOperation(value = "resultadoUrna", response = Iterable.class, tags = "getNumero")
+    @ApiOperation(value = "resultadoUrna", response = Iterable.class, tags = "getVoto")
     @GetMapping // é usa quando utilizado o metodo get através do extends JpaRepository, fazendo
                 // vir direto aqui \/
     public List<UrnaModel> getNumero() {
         
-        
+
         return urnaRepository.findAll(); // após o autowired é possível usar o metodo findall entre outros
     }
 
-    @ApiOperation(value = "inseriNumero", response = Iterable.class, tags = "PostNumero")
+    @ApiOperation(value = "inseriVoto", response = Iterable.class, tags = "PostVoto")
     @PostMapping // é usado quando utilizado o metodo post através do extends JpaRepository,
                  // fazendo vir direto aqui \/
     @ResponseStatus(HttpStatus.CREATED)
-    public UrnaModel postNumero(@RequestBody UrnaModel urna) { // o requestbody é utilizado para converter em um objeto java do tipo UrnaModel
+    public UrnaModel postVoto(@RequestBody UrnaModel urna) { // o requestbody é utilizado para converter em um objeto java do tipo UrnaModel
         return urnaRepository.save(urna);
     }
 

@@ -25,15 +25,15 @@ public class UrnaModel {
 
 	@ApiModelProperty(notes = "Urna", name = "UrnaEletronica", required = true, value = "votação")
 	@Column(nullable = false)
-	private int numero;
+	private int voto;
 	private String verficavoto;
 
-	public int getNumero() {
-		return numero;
+	public int getVoto() {
+		return voto;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setVoto(int voto) {
+		this.voto = voto;
 	}
 
 	public String getVerficavoto() {
