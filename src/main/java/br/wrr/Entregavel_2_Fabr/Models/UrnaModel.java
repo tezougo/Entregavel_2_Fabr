@@ -12,7 +12,7 @@ public class UrnaModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id;
+	private long Id ;
 	public long getId() {
 		return Id;
 	}
