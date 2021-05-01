@@ -50,7 +50,7 @@ public class PopulacaoCidadeController {
     @DeleteMapping("/{ano}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePopulacao(@PathVariable int ano) {
-        populacaoCidadeRepository.delete(ano);
+        populacaoCidadeRepository.deleteByAno(ano);
     }
     
     @ApiOperation(value = "Retorna as populacoes atualizadas", response = Iterable.class, tags = "PutAno/Populacao")
