@@ -40,12 +40,12 @@ public class CadastroIndividuoController {
     @ApiOperation(value = "Individuo cadastrado", response = Iterable.class, tags = "getTipo")
     @GetMapping("/{tipo}") // é usa quando utilizado o metodo get através do extends JpaRepository, fazendo
                            // vir direto aqui \/
-    public CadastroIndividuoModel getTipo(@PathVariable String tipo) {
-        return cadastroindividuoRepository.findByTipo(tipo); // após o autowired é possível usar o metodo findall entre
+    public CadastroIndividuoModel getAllTipos(@PathVariable String tipo) {
+        return cadastroindividuoRepository.findAllByTipo(tipo); // após o autowired é possível usar o metodo findall entre
         // outros
     }
 
-    @ApiOperation(value = "Cadastra nome_individuo/tipo", response = Iterable.class, tags = "PostNome_individuo/Tipo")
+    @ApiOperation(value = "Cadastra nome_individuo/tipo", response = Iterable.class, tags = "PostNome/Tipo")
     @PostMapping("/cadastro") // é usado quando utilizado o metodo post através do extends JpaRepository,
     // fazendo vir direto aqui \/
     @ResponseStatus(HttpStatus.CREATED)
@@ -59,20 +59,18 @@ public class CadastroIndividuoController {
     @ApiOperation(value = "Exclui o cadastro informando o id", response = Iterable.class, tags = "Deletar cadastro")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteAno(@PathVariable long id) {
+    public void deleteCadastro(@PathVariable long id) {
         cadastroindividuoRepository.deleteById(id);
     }
 
     @ApiOperation(value = "Retorna o cadastro atualizado", response = Iterable.class, tags = "PutTipo")
-    @PutMapping("/{nome_individuo}")
-    public CadastroIndividuoModel putCadastro(@RequestBody CadastroIndividuoModel cadastroindividuoModel,
-            @PathVariable String nome_individuo) {
-        // Optional<PessoaModel> p = pessoaRepository.findById(id);
-        CadastroIndividuoModel c = cadastroindividuoRepository.findByNome_individuo(nome_individuo);
+    @PutMapping("/{nome}")
+    public CadastroIndividuoModel putCadastro(@RequestBody CadastroIndividuoModel cadastroindividuoModel, @PathVariable String nome) {
+        CadastroIndividuoModel c = cadastroindividuoRepository.findByNome(nome);
         if (c == null) {
             return null;
         }
-        c.setNome_individuo(cadastroindividuoModel.getNome_individuo());
+        c.setTipo(cadastroindividuoModel.getTipo());
 
         return cadastroindividuoRepository.save(c);
     }

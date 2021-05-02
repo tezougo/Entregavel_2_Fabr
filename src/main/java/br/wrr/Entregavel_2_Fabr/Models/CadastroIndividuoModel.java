@@ -12,26 +12,26 @@ import io.swagger.annotations.ApiModelProperty;
 public class CadastroIndividuoModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long Id;
 
     public long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        Id = id;
     }
-    @ApiModelProperty(notes = "Nome/Tipo", name = "Insira os dados", required = true, value = "Insira Nome_individuo/Tipo")
+    @ApiModelProperty(notes = "Nome/Tipo", name = "Insira os dados", required = true, value = "Insira Nome/Tipo")
     @Column(nullable = false)
-    private String Nome_individuo;
+    private String nome;
     private String tipo;
 
-    public String getNome_individuo() {
-        return Nome_individuo;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNome_individuo(String nome_individuo) {
-        Nome_individuo = nome_individuo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getTipo() {
