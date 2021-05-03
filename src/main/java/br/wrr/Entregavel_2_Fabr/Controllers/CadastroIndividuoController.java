@@ -40,9 +40,13 @@ public class CadastroIndividuoController {
     @ApiOperation(value = "Individuo cadastrado", response = Iterable.class, tags = "getTipo")
     @GetMapping("/{tipo}") // é usa quando utilizado o metodo get através do extends JpaRepository, fazendo
                            // vir direto aqui \/
-    public CadastroIndividuoModel getAllTipos(@PathVariable String tipo) {
+    public List<CadastroIndividuoModel> getAllTipos(@PathVariable String tipo) {
         return cadastroindividuoRepository.findAllByTipo(tipo); // após o autowired é possível usar o metodo findall entre
         // outros
+    }
+
+    public CadastroIndividuoController(CadastroIndividuoRepository cadastroindividuoRepository) {
+        this.cadastroindividuoRepository = cadastroindividuoRepository;
     }
 
     @ApiOperation(value = "Cadastra nome_individuo/tipo", response = Iterable.class, tags = "PostNome/Tipo")
@@ -57,10 +61,11 @@ public class CadastroIndividuoController {
     // @ResponseBody // para não navegar para uma página, se não colocar ele ira
     // procurar uma página
     @ApiOperation(value = "Exclui o cadastro informando o id", response = Iterable.class, tags = "Deletar cadastro")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{nome}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCadastro(@PathVariable long id) {
-        cadastroindividuoRepository.deleteById(id);
+    public void deleteCadastro(@PathVariable String nome) {
+        
+        cadastroindividuoRepository.delete(cadastroindividuoRepository.getByNome(nome));
     }
 
     @ApiOperation(value = "Retorna o cadastro atualizado", response = Iterable.class, tags = "PutTipo")

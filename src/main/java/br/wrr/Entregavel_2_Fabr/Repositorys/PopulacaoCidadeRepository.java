@@ -6,7 +6,9 @@ import br.wrr.Entregavel_2_Fabr.Models.PopulacaoCidadeModel;
 
 @Repository
 public interface PopulacaoCidadeRepository extends JpaRepository<PopulacaoCidadeModel, Long> {
-    public void deleteByAno(int ano);
+
     public PopulacaoCidadeModel findByAno(int ano);
+
+    public PopulacaoCidadeModel getByAno(int ano);
 
 }
