@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './componente1.component.html',
   styleUrls: ['./componente1.component.css']
 })
+
 export class Componente1Component implements OnInit { // controller do componente
 
   numero: number;
