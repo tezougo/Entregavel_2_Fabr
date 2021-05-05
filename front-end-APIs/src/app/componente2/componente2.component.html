@@ -1,0 +1,8 @@
+
+<ul>
+  <li *ngFor="let album of albuns" (click)="selecionar(album)">
+
+    <p [class.selecionado]="selecionado == album">{{album.albumDo}}</p>
+    <p *ngIf="selecionado == album">{{album.papel}}</p>
+</li>
+</ul>

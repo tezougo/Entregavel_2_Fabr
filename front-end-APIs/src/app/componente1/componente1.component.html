@@ -1,16 +1,29 @@
+<!-- <p>aqui</p> -->
 <div style="text-align: center;">
+  <h1>Álbuns</h1>
 
-  <p>componente1 works!</p>
+  <img src="assets/albuns01.jpg" alt="albuns01.jpg">
 
-
-  <img src="assets/tela_fundo_site_2.JPG" alt="imagem 1 não carregou">
-
-
-  <h5>Tela fundo</h5>
+  <h1>
+    Segue a baixo os albuns disponíveis:
+  </h1>
 
 </div>
+
 
 <div>
-  <input type="text" (input) ="this.numero = $event.target.value"/>
+  <br><br>
+  <h4>Digite o álbum que procura:
+    <input type="text" (input)="this.textocapturado = $event.target.value" />
+  </h4>
 
-</div>
+  <div *ngIf="this.textocapturado != null; then buscando else aguardando"></div>
+
+  <ng-template #aguardando>Aguardando...</ng-template>
+  <ng-template #buscando>Buscando por...<b>{{textocapturado}}</b></ng-template>
+
+  <ul>
+    <li *ngFor="let pessoa of pessoas">
+      {{pessoa.nome}} ({{pessoa.papel}})
+    </li>
+  </ul>
