@@ -6,7 +6,6 @@
   <h1>
     Segue a baixo os albuns disponíveis:
   </h1>
-  <hr>
 </div>
 <ul>
   <!-- <li *ngFor="let pessoa of albuns">
@@ -14,22 +13,26 @@
   </li> -->
 </ul>
 
-<hr>
+<div>
 <ul>
   <li *ngFor="let album of albuns" (click)="selecionar(album)">
 
     <p [class.selecionado]="selecionado == album">{{album.albumDo}}</p>
     <p *ngIf="selecionado == album">{{album.papel}}</p>
+    <button (click) ="excluir(album)">Excluir</button>
+    <button (click) ="editar(album)">Editar</button>
+
   </li>
 </ul>
 <hr/>
-
+</div>
 <h1>Insersão</h1>
-<form [FormGroup] = "cadastro">
-  <label for="nome">Nome</label><br/>
-  <input type="text" id="nome" name="nome" formControlName="nome"/>
-  <label for="papel">Papel</label><br />
-  <input type="text" id="papel" name="papel" formControlName="papel" />
-  <button type="submit" (click)="salvar()" [disabled]="!cadastro.valid">Inserir</button>
+<form [formGroup] = "cadastro">
+  <label for="nome">Nome <input type="text" id="nome" name="nome" [(ngModel)]="nome" formControlName="nome" /></label><br/>
 
+  <label for="papel">Papel </label>
+  <input type="text" id="papel" name="papel" [(ngModel)]="papel" formControlName="papel" /><div><br/>
+  <button type="submit" (click)="salvar()" [disabled]="!cadastro.valid">Inserir</button>
+  <button type="reset" (click)="cancelar()" >Cancelar</button>
+  </div>
 </form>

@@ -1,7 +1,13 @@
 <div>
-  <br><br>
+  <br><br><a routerLink="/albuns">
+    <ng-template #rotaalbum></ng-template>
+  </a>
+  <ng-template #naoencontrado>Esse album não existe!</ng-template>
   <ng-template #aguardando>Aguardando sua procura...</ng-template>
-  <ng-template #buscando>Buscar por album "<b>{{textocapturado}}"? <input type="button" value="Sim!" /> </b>
+  <ng-template #buscando>Buscar por album "<b>{{textocapturado}}"?</b>
+
+    <input type="button" value="Sim!">
+
   </ng-template>
   <h4>Digite o álbum que procura:
     <input type="text" (input)="this.textocapturado = $event.target.value" />
@@ -9,14 +15,13 @@
 
   <div *ngIf="this.textocapturado.length != 0; then buscando  else aguardando"></div>
 
-
-
   <ul>
-    <li *ngFor="let pessoa of pessoas">
-      <!-- <div *ngIf="this.textocapturado = pessoa.nome; then {{pessoa.nome}} else buscando"></div> -->
-      <!-- {{pessoa.nome}} ({{pessoa.papel}}) -->
+    <li *ngFor="let albumselecionado of albuns"><b>{{albumselecionado.albumDo}}</b>
+    <li *ngIf=" this.textocapturado != this.albumselecionado; then rotaalbum else naoencontrado">
+
     </li>
   </ul>
-  <div>
-    <input type="button" value="Mostrar todos os albuns." />
-  </div>
+
+  <a routerLink="/albuns">
+    <input type="button" value="Mostrar todos os albuns." /></a>
+</div>
