@@ -1,29 +1,22 @@
-<!-- <p>aqui</p> -->
-<div style="text-align: center;">
-  <h1>Álbuns</h1>
-
-  <img src="assets/albuns01.jpg" alt="albuns01.jpg">
-
-  <h1>
-    Segue a baixo os albuns disponíveis:
-  </h1>
-
-</div>
-
-
 <div>
   <br><br>
+  <ng-template #aguardando>Aguardando sua procura...</ng-template>
+  <ng-template #buscando>Buscar por album "<b>{{textocapturado}}"? <input type="button" value="Sim!" /> </b>
+  </ng-template>
   <h4>Digite o álbum que procura:
     <input type="text" (input)="this.textocapturado = $event.target.value" />
   </h4>
 
-  <div *ngIf="this.textocapturado != null; then buscando else aguardando"></div>
+  <div *ngIf="this.textocapturado.length != 0; then buscando  else aguardando"></div>
 
-  <ng-template #aguardando>Aguardando...</ng-template>
-  <ng-template #buscando>Buscando por...<b>{{textocapturado}}</b></ng-template>
+
 
   <ul>
     <li *ngFor="let pessoa of pessoas">
-      {{pessoa.nome}} ({{pessoa.papel}})
+      <!-- <div *ngIf="this.textocapturado = pessoa.nome; then {{pessoa.nome}} else buscando"></div> -->
+      <!-- {{pessoa.nome}} ({{pessoa.papel}}) -->
     </li>
   </ul>
+  <div>
+    <input type="button" value="Mostrar todos os albuns." />
+  </div>

@@ -7,7 +7,7 @@ import { Pessoa } from '../models/Pessoa.model';
   styleUrls: ['./componente1.component.css'],
 })
 export class Componente1Component implements OnInit {
-  textocapturado: string = null;
+  textocapturado?: string = null;
 
   pessoas = [
     new Pessoa('wagner', 'genro'),

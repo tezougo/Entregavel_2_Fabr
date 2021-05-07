@@ -1,8 +1,35 @@
+<div style="text-align: center;">
+  <h1>Álbuns</h1>
 
+  <img src="assets/albuns01.jpg" alt="albuns01.jpg">
+
+  <h1>
+    Segue a baixo os albuns disponíveis:
+  </h1>
+  <hr>
+</div>
+<ul>
+  <!-- <li *ngFor="let pessoa of albuns">
+    {{pessoa.albumDo}} ({{pessoa.papel}})
+  </li> -->
+</ul>
+
+<hr>
 <ul>
   <li *ngFor="let album of albuns" (click)="selecionar(album)">
 
     <p [class.selecionado]="selecionado == album">{{album.albumDo}}</p>
     <p *ngIf="selecionado == album">{{album.papel}}</p>
-</li>
+  </li>
 </ul>
+<hr/>
+
+<h1>Insersão</h1>
+<form [FormGroup] = "cadastro">
+  <label for="nome">Nome</label><br/>
+  <input type="text" id="nome" name="nome" formControlName="nome"/>
+  <label for="papel">Papel</label><br />
+  <input type="text" id="papel" name="papel" formControlName="papel" />
+  <button type="submit" (click)="salvar()" [disabled]="!cadastro.valid">Inserir</button>
+
+</form>

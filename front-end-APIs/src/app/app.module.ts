@@ -1,4 +1,7 @@
+import { CommonModule } from '@angular/common';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,10 +16,13 @@ import { Componente2Component } from './componente2/componente2.component';
     Componente2Component
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
