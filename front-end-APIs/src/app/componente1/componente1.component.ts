@@ -9,7 +9,7 @@ import { Pessoa } from '../models/Pessoa.model';
 })
 export class Componente1Component implements OnInit {
   textocapturado?: string = null;
-  albumselecionado = null;
+  encontrado = null;
   pessoas = [
     new Pessoa('wagner', 'genro'),
     new Pessoa('suelen', 'filha'),
