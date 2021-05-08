@@ -19,7 +19,7 @@
   <ul *ngFor="let albumselecionado of albuns">
 
     <li *ngIf="this.textocapturado == albumselecionado.albumDo; ">
-          <a routerLink="/albuns">
+          <a routerLink="/albuns/&album={{this.albumselecionado.albumDo}}">
             <input type="button" value="Sim!" />
           </a>
     </li>
